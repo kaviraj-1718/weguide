@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+</head>
+
+<body
+    style="position: relative; background-image: url('https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=600'); left: 28%; top: 100px; ">
+    <h1>Image <span style="color: white;">Gallery</span></h1>
+    <div class="gallery">
+        <img id="gallery-image" src="" alt="Gallery Image">
+        <div class="navigation">
+            <button
+                style=" font-style: italic; position: relative; right: 33px; height: 50px; width: 150px;  font-weight: bolder; margin-right: 80px; font-size: 30px; background-color: lightgreen;"
+                id="prev-btn">Previous</button>
+            <span style="margin-right: 95px; color:black; font-weight: bold;  height: fit-content; width: fit-content; background-color: lightgreen; font-size: 30px;" id="image-number"></span>
+            <button
+                style="height: 50px; font-style: italic; width: 150px; font-weight: bolder; font-size: 30px; background-color: lightgreen; padding: 7px;"
+                id="next-btn">Next</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const galleryImage = document.getElementById('gallery-image');
+            const prevButton = document.getElementById('prev-btn');
+            const nextButton = document.getElementById('next-btn');
+            const imageNumber = document.getElementById('image-number');
+
+            const imageUrls = [
+                "https://images.pexels.com/photos/234272/pexels-photo-234272.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "https://images.pexels.com/photos/2189696/pexels-photo-2189696.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "https://images.pexels.com/photos/1276518/pexels-photo-1276518.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "https://images.pexels.com/photos/592284/pexels-photo-592284.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "https://images.pexels.com/photos/2887497/pexels-photo-2887497.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "https://images.pexels.com/photos/1424239/pexels-photo-1424239.jpeg?auto=compress&cs=tinysrgb&w=600",
+                "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=600"
+            ];
+
+            let currentImageIndex = 0;
+
+            function showImage(index) {
+                galleryImage.src = imageUrls[index];
+                imageNumber.textContent = `Image ${index + 1} of ${imageUrls.length}`;
+            }
+
+            function showNextImage() {
+                currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+                showImage(currentImageIndex);
+            }
+
+            function showPreviousImage() {
+                currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+                showImage(currentImageIndex);
+            }
+            showImage(currentImageIndex);
+            prevButton.addEventListener('click', showPreviousImage);
+            nextButton.addEventListener('click', showNextImage);
+        });
+
+    </script>
+</body>
+
+</html>

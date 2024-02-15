@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  
+  .gallery {
+    margin: 50px auto;
+    position: relative;
+  }
+  
+  .navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  #image-number {
+    margin: 0 10px;
+  }
+  
