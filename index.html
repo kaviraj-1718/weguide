@@ -1,66 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" control="width=device-width", initial-scale="1.0">
+    <title>LOGIN PAGE</title>
+   
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
-<body
-    style="position: relative; background-image: url('https://images.pexels.com/photos/733853/pexels-photo-733853.jpeg?auto=compress&cs=tinysrgb&w=600'); left: 28%; top: 100px; ">
-    <h1>Image <span style="color: white;">Gallery</span></h1>
-    <div class="gallery">
-        <img id="gallery-image" src="" alt="Gallery Image">
-        <div class="navigation">
-            <button
-                style=" font-style: italic; position: relative; right: 33px; height: 50px; width: 150px;  font-weight: bolder; margin-right: 80px; font-size: 30px; background-color: lightgreen;"
-                id="prev-btn">Previous</button>
-            <span style="margin-right: 95px; color:black; font-weight: bold;  height: fit-content; width: fit-content; background-color: lightgreen; font-size: 30px;" id="image-number"></span>
-            <button
-                style="height: 50px; font-style: italic; width: 150px; font-weight: bolder; font-size: 30px; background-color: lightgreen; padding: 7px;"
-                id="next-btn">Next</button>
+<body class="bg">
+    <header>
+        <h2 class="logo">WeGuide</h2>
+        <nav class="navigation">
+            <a href="home.html">HOME</a>
+            
+            <button class="btnlogin-popup">LOGIN</button>
+        </nav>
+    </header>
+
+
+    <div class="wrapper">
+
+    <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+
+
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+
+                <div class="remember-forget">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>  
+                <button type="submit" class="btn">Login</button>
+                   
+
+                <div class="login-register">
+                    <p>Don't have an account?<a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
         </div>
+
+
+
+
+
+
+        <div class="form-box register">
+            <h2>Registration</h2>
+            <form action="#">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+
+
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+
+                <div class="remember-forget">
+                    <label><input type="checkbox">I agree to the terms & conditions</label>
+                  
+                </div>  
+                <button type="submit" class="btn">Register</button>
+                   
+
+                <div class="login-register">
+                    <p>Already have an account?<a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+
+
+
     </div>
+
+
+   
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const galleryImage = document.getElementById('gallery-image');
-            const prevButton = document.getElementById('prev-btn');
-            const nextButton = document.getElementById('next-btn');
-            const imageNumber = document.getElementById('image-number');
-
-            const imageUrls = [
-                "https://images.pexels.com/photos/234272/pexels-photo-234272.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "https://images.pexels.com/photos/2189696/pexels-photo-2189696.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "https://images.pexels.com/photos/1276518/pexels-photo-1276518.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "https://images.pexels.com/photos/592284/pexels-photo-592284.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "https://images.pexels.com/photos/2887497/pexels-photo-2887497.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "https://images.pexels.com/photos/1424239/pexels-photo-1424239.jpeg?auto=compress&cs=tinysrgb&w=600",
-                "https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&w=600"
-            ];
-
-            let currentImageIndex = 0;
-
-            function showImage(index) {
-                galleryImage.src = imageUrls[index];
-                imageNumber.textContent = `Image ${index + 1} of ${imageUrls.length}`;
-            }
-
-            function showNextImage() {
-                currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
-                showImage(currentImageIndex);
-            }
-
-            function showPreviousImage() {
-                currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
-                showImage(currentImageIndex);
-            }
-            showImage(currentImageIndex);
-            prevButton.addEventListener('click', showPreviousImage);
-            nextButton.addEventListener('click', showNextImage);
+        const wrapper = document.querySelector('.wrapper');
+        const loginLink = document.querySelector('.login-link');
+        const registerLink = document.querySelector('.register-link');
+        const btnPopup = document.querySelector('.btnlogin-popup');
+        const iconClose = document.querySelector('.icon-close');
+      
+        registerLink.addEventListener('click', () => {
+          wrapper.classList.add('active');
+        });
+      
+        loginLink.addEventListener('click', () => {
+          wrapper.classList.remove('active');
         });
 
-    </script>
-</body>
 
+        btnPopup.addEventListener('click', ()=> {
+           wrapper.classList.add('active-popup');
+        });
+
+
+        iconClose.addEventListener('click', ()=> {
+           wrapper.classList.remove('active-popup');
+        });
+
+
+       
+        document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var emailInput = document.querySelector('input[type="email"]');
+    var passwordInput = document.querySelector('input[type="password"]');
+  
+    // Regular expression patterns for email and password validation
+    var emailPattern = /^[a-z0-9]+@gmail\.com$/i;
+    var passwordPattern = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+
+
+  
+    // Validate email
+    if (!emailPattern.test(emailInput.value)) {
+        alert('Invalid email. Please enter a valid email address in the format "[a-z0-9]@gmail.com".');
+        return;
+    }
+
+    // Validate password
+    if (!passwordPattern.test(passwordInput.value)) {
+        alert('Invalid password. Please enter a valid password(atleast 8 characters and a combination of numbers, letters and special characters.)');
+        return;
+    }
+  
+    // If validation passes, you can proceed with the form submission
+    alert('Form submitted successfully!');
+    // Add your code here to submit the form to the server
+});
+
+
+
+
+document.querySelector('.register form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get input values
+    var usernameInput = document.querySelector('.register input[type="text"]');
+    var emailInput = document.querySelector('.register input[type="email"]');
+    var passwordInput = document.querySelector('.register input[type="password"]');
+    var agreeCheckbox = document.querySelector('.register input[type="checkbox"]');
+  
+    // Regular expression patterns for email and password validation
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var passwordPattern = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+
+
+  
+    // Validate username
+    if (usernameInput.value.trim() === '') {
+        alert('Please enter a username.');
+        return;
+    }
+
+    // Validate email
+    if (!emailPattern.test(emailInput.value)) {
+        alert('Invalid email. Please enter a valid email address.');
+        return;
+    }
+
+    // Validate password
+    if (!passwordPattern.test(passwordInput.value)) {
+        alert('Invalid password. Please enter a password with at least 8 characters, containing letters, numbers, and special characters.');
+        return;
+    }
+  
+    // Validate terms and conditions checkbox
+    if (!agreeCheckbox.checked) {
+        alert('Please agree to the terms and conditions.');
+        return;
+    }
+  
+    // If all validation passes, alert "Registered successfully"
+    alert('Registered successfully!');
+    // Add your code here to submit the form to the server
+});
+
+
+
+
+      </script>
+      
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
 </html>

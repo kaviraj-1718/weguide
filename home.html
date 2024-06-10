@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="stylehome.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+   
+    <div class="header">
+        <h1 class="logo">We<span>Guide</span></h1>
+
+        <div class="list">
+            <nav>
+                <ul>
+                    <li><button><a href="aboutUs.html">ABOUT US</a></button></li>
+                    <li><button><a href="courses.html">COURSES</a></button></li>
+                    <li><button><a href="contactus.html">CONTACT US</a></button></li>
+                    <li><button><a href="index.html">LOGIN</a></button></li>
+                </ul>
+            </nav>
+        </div>
+     
+    </div>
+    <div class="quote">
+        <p class="uno" style="text-align:justify;font-size:40px;font-weight: bold;padding:30px;line-height:1.8;letter-spacing:5px;color:white">"Empowering minds, <br>
+            illuminating paths;<br>
+             your gateway to knowledge,<br>
+             your beacon of success."</p>
+             <img style="height:500px;position: relative;left:700px;top:-400px;" src="Untitled design (3).png">
+            
+    </div>
+
+    <div class="search-container" style="position:relative; top:-250px;left:100px;">
+        <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        <button class="search-button" onclick="searchPage()">Search</button>
+       
+    </div>
+    <h2 style="font-weight: bold;color:white;letter-spacing:5px;position:relative;top:-250px;left:60px"><span style="color:#33bbe8">SEARCH</span> FOR A COURSE</h2>
+    <p style="font-weight:bold;font-size:25px;color:white;letter-spacing:5px;text-align:justify;position:relative;top:-380px;left:700px;">Welcome to “WEGUIDE” study hub!<br>
+         We provide curated resources<br> and structured roadmaps<br>
+          to help you conquer the syllabus.<br>
+           Whether you're a beginner or aiming for expertise,<br>
+            we've got you with right study materials. </p>
+
+           
+
+            <div class="container" style="position:relative;left:50px;">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h3 class="animate-charcter"> FEATURED MATERIAL</h3>
+                  </div>
+                </div>
+            </div>
+            
+            
+            <div style="position:relative; top:-200px" class="python">
+              <aside class="profile-card">
+            
+                <header>
+              
+                  <!-- here’s the avatar -->
+                  
+                    <ion-icon style="color:white;height:100px;width:100px" name="logo-python"></ion-icon>
+                  </a>
+              
+                  <!-- the username -->
+                  <h1>PYTHON</h1>
+              
+                  <!-- and role or location -->
+                  <h2>PROGRAMMING LANGUAGE</h2>
+              
+                </header>
+              
+                <!-- bit of a bio; who are you? -->
+                <div class="profile-bio">
+              
+                  <p>Python is a high-level, versatile programming language known for its readability and ease of use.<a style="color:aliceblu;text-decoration: underline"href="python.html">KNOW MORE</a></p>
+              
+                </div>
+              
+              
+                
+              </aside> 
+            </div>
+            
+           
+
+
+<div class="footer" style="height:300px; background-color:#33bbe8;">
+         <h2 style="color:#022135;font-weight:bold;font-size:30px;text-decoration:underline;text-align:center;position:relative;top:50px;background-color:#33bbe8">CONTACT</h2>
+       <ion-icon name="mail-outline" style="position:relative;top:80px;left:80px;color:white;font-weight:bold;size:100px;height:20px;width:20px"></ion-icon><a style="background-color: #33bbe8;font-size:20px;position:relative;top:80px;left:90px;color:white;font-weight:bold;" href="#">kaviraj.al22@bitsathy.ac.in</a>
+
+       <ion-icon name="call-outline" style="position:relative;top:80px;left:420px;color:white;font-weight:bold;size:100px;height:20px;width:20px"></ion-icon><a style="background-color: #33bbe8;font-size:20px;position:relative;top:80px;left:450px;color:white;text-decoration:none;font-weight:bold; " href="#">9976850397</a>
+       <ion-icon name="logo-linkedin" style="position:relative;top:80px;left:780px;color:white;font-weight:bold;size:100px;height:20px;width:20px"></ion-icon><a style="background-color: #33bbe8;font-size:20px;position:relative;top:80px;left:800px;color:white;font-weight:bold;" target="_blank" href="https://www.linkedin.com/in/kaviraj18">Linkedin</a>
+
+
+       <h4 style="background-color: #33bbe8;position: relative; top:150px;text-align:center;align-items:center">copyright@2023 WeGuide. All Rights Reserved</h4>
+</div>
+            
+                 
+
+
+
+<script>
+   
+
+
+
+  function searchPage() {
+      // Get the user's input
+      var userInput = document.getElementById("search-input").value.toLowerCase();
+
+      // Check for specific keywords and navigate accordingly
+      if (userInput === "python") {
+          // Redirect to the Python page
+          window.location.href = "python.html";
+      } else if (userInput === "c") {
+          // Redirect to the C page
+          window.location.href = "c.html";
+      }  else if (userInput === "cpp") {
+          // Redirect to the C page
+          window.location.href = "c++.html";
+      } else if (userInput === "web") {
+          // Redirect to the C page
+          window.location.href = "webdev.html";
+      }
+       else {
+          // Handle other cases or show an error message
+          alert("Keyword not found. Please try a different search term.");
+      }
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
