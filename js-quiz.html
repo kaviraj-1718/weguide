@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Quiz</title>
+    
+
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: #33bbe8;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .sticky-header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sticky-header nav ul li {
+            margin: 0 15px;
+        }
+
+        .sticky-header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sticky-header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-section h2 {
+            color: #333;
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-top: 8px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #33bbe8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #186f8b;
+        }
+
+        /* Results Section */
+        .results-section {
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .results-section h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+/* Modal Styles */
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            width: 40%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s;
+        }
+
+        .modal h3 {
+            color: #186f8b;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .modal p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .modal button {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #33bbe8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #186f8b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #07475d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <h1>Java Quiz</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#results">Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <h2>Java Programming Quiz</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. Which of the following is not a primitive data type in JavaScript?</p>
+                <label><input type="radio" name="q1" value="string"> string</label>
+                <label><input type="radio" name="q1" value="boolean"> boolean</label>
+                <label><input type="radio" name="q1" value="object"> object</label>
+            </div>
+            <div class="question">
+                <p>2. How do you declare a JavaScript variable?</p>
+                <label><input type="radio" name="q2" value="let x;"> let x;</label>
+                <label><input type="radio" name="q2" value="var x;"> var x;</label>
+                <label><input type="radio" name="q2" value="Both are correct"> Both are correct</label>
+            </div>
+            <div class="question">
+                <p>3. Which company developed JavaScript?</p>
+                <label><input type="radio" name="q3" value="Netscape"> Netscape</label>
+                <label><input type="radio" name="q3" value="Microsoft"> Microsoft</label>
+                <label><input type="radio" name="q3" value="Sun Microsystems"> Sun Microsystems</label>
+            </div>
+            <div class="question">
+                <p>4. How do you write a comment in JavaScript?</p>
+                <label><input type="radio" name="q4" value="// This is a comment"> // This is a comment</label>
+                <label><input type="radio" name="q4" value="<!-- This is a comment -->"> <!-- This is a comment --></label>
+                <label><input type="radio" name="q4" value="/* This is a comment */"> /* This is a comment */</label>
+            </div>
+            <div class="question">
+                <p>5. Which of the following is the correct syntax to write an array in JavaScript?</p>
+                <label><input type="radio" name="q5" value="let arr = [1, 2, 3];"> let arr = [1, 2, 3];</label>
+                <label><input type="radio" name="q5" value="let arr = {1, 2, 3};"> let arr = {1, 2, 3};</label>
+                <label><input type="radio" name="q5" value="let arr = (1, 2, 3);"> let arr = (1, 2, 3);</label>
+            </div>
+            <div class="question">
+                <p>6. How do you define a function in JavaScript?</p>
+                <label><input type="radio" name="q6" value="function myFunction() {}"> function myFunction() {}</label>
+                <label><input type="radio" name="q6" value="let myFunction = function() {}"> let myFunction = function() {}</label>
+                <label><input type="radio" name="q6" value="Both are correct"> Both are correct</label>
+            </div>
+            <div class="question">
+                <p>7. What is the output of the following code?</p>
+                <pre>
+                console.log(typeof NaN);
+                </pre>
+                <label><input type="radio" name="q7" value="number"> number</label>
+                <label><input type="radio" name="q7" value="undefined"> undefined</label>
+                <label><input type="radio" name="q7" value="NaN"> NaN</label>
+            </div>
+            <div class="question">
+                <p>8. Which method is used to remove the last element from an array in JavaScript?</p>
+                <label><input type="radio" name="q8" value="pop()"> pop()</label>
+                <label><input type="radio" name="q8" value="push()"> push()</label>
+                <label><input type="radio" name="q8" value="shift()"> shift()</label>
+            </div>
+            <div class="question">
+                <p>9. What does the 'this' keyword refer to in JavaScript?</p>
+                <label><input type="radio" name="q9" value="The object from where it was called"> The object from where it was called</label>
+                <label><input type="radio" name="q9" value="The window object"> The window object</label>
+                <label><input type="radio" name="q9" value="The current function"> The current function</label>
+            </div>
+            <div class="question">
+                <p>10. Which of the following is a JavaScript framework/library?</p>
+                <label><input type="radio" name="q10" value="React"> React</label>
+                <label><input type="radio" name="q10" value="Laravel"> Laravel</label>
+                <label><input type="radio" name="q10" value="Django"> Django</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section">
+        <h2>Results</h2>
+        <p>Your score will be displayed here after submitting the quiz.</p>
+        <div id="quiz-results"></div>
+    </section>
+
+
+     <!-- Result Modal -->
+     <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h3>Your Score</h3>
+            <p id="modal-score"></p>
+            <button onclick="showSubmissionModal()">Done</button>
+        </div>
+    </div>
+
+    <!-- Submission Modal -->
+    <div id="submissionModal" class="modal">
+        <div class="modal-content">
+            <p>You have submitted the quiz successfully. Your certificate will be mailed to you.<br>Redirecting to home page...</p>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>Java Quiz &copy; 2024</p>
+    </footer>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+            const score = calculateScore(formData);
+            document.getElementById('modal-score').textContent = `Your score is: ${score} out of 10`;
+            document.getElementById('resultModal').style.display = 'flex';
+        }
+
+        function calculateScore(formData) {
+            let score = 0;
+            if (formData.get('q1') === 'object') score++;
+            if (formData.get('q2') === 'Both are correct') score++;
+            if (formData.get('q3') === 'Netscape') score++;
+            if (formData.get('q4') === '// This is a comment') score++;
+            if (formData.get('q5') === 'let arr = [1, 2, 3];') score++;
+            if (formData.get('q6') === 'Both are correct') score++;
+            if (formData.get('q7') === 'number') score++;
+            if (formData.get('q8') === 'pop()') score++;
+            if (formData.get('q9') === 'The object from where it was called') score++;
+            if (formData.get('q10') === 'React') score++;
+            return score;
+        }
+
+        function showSubmissionModal() {
+            document.getElementById('resultModal').style.display = 'none';
+            const submissionModal = document.getElementById('submissionModal');
+            submissionModal.style.display = 'flex';
+
+            // Delay the navigation to the home page
+            setTimeout(function() {
+                submissionModal.style.display = 'none';  // Hide the modal
+                window.location.href = "home.html";  // Replace "home.html" with your actual home page URL
+            }, 3000); // Wait for 3 seconds before redirecting
+        }
+    </script>
+    
+
+</body>
+</html>

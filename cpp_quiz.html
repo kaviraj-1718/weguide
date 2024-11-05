@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Quiz</title>
+    
+
+
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f5;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: #33bbe8;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .sticky-header nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .sticky-header nav ul li {
+            margin: 0 15px;
+        }
+
+        .sticky-header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sticky-header nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quiz Section */
+        .quiz-section {
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-section h2 {
+            color: #333;
+            text-align: center;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 15px;
+        }
+
+        .question p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        label {
+            display: block;
+            margin-top: 8px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #33bbe8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #186f8b;
+        }
+
+        /* Results Section */
+        .results-section {
+            margin: 20px auto;
+            padding: 20px;
+            width: 60%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .results-section h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+/* Modal Styles */
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            width: 40%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 0.5s;
+        }
+
+        .modal h3 {
+            color: #186f8b;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .modal p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .modal button {
+            width: auto;
+            padding: 10px 20px;
+            background-color: #33bbe8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        .modal button:hover {
+            background-color: #186f8b;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #07475d;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <h1>Java Quiz</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#results">Results</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="quiz-section">
+        <h2>Java Programming Quiz</h2>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. Which of the following is a correct C++ header file extension?</p>
+                <label><input type="radio" name="q1" value=".h"> .h</label>
+                <label><input type="radio" name="q1" value=".cpp"> .cpp</label>
+                <label><input type="radio" name="q1" value=".hpp"> .hpp</label>
+            </div>
+            <div class="question">
+                <p>2. What is the correct syntax to declare a pointer in C++?</p>
+                <label><input type="radio" name="q2" value="int *ptr;"> int *ptr;</label>
+                <label><input type="radio" name="q2" value="int ptr*;"> int ptr*;</label>
+                <label><input type="radio" name="q2" value="ptr int*;"> ptr int*;</label>
+            </div>
+            <div class="question">
+                <p>3. Which of the following is the correct way to define a constant in C++?</p>
+                <label><input type="radio" name="q3" value="const int x = 10;"> const int x = 10;</label>
+                <label><input type="radio" name="q3" value="int const x = 10;"> int const x = 10;</label>
+                <label><input type="radio" name="q3" value="Both are correct"> Both are correct</label>
+            </div>
+            <div class="question">
+                <p>4. What is the size of a double data type in C++?</p>
+                <label><input type="radio" name="q4" value="4 bytes"> 4 bytes</label>
+                <label><input type="radio" name="q4" value="8 bytes"> 8 bytes</label>
+                <label><input type="radio" name="q4" value="10 bytes"> 10 bytes</label>
+            </div>
+            <div class="question">
+                <p>5. What is the purpose of the 'new' keyword in C++?</p>
+                <label><input type="radio" name="q5" value="Allocate memory"> Allocate memory</label>
+                <label><input type="radio" name="q5" value="Delete memory"> Delete memory</label>
+                <label><input type="radio" name="q5" value="None of the above"> None of the above</label>
+            </div>
+            <div class="question">
+                <p>6. Which of the following concepts is used for run-time polymorphism in C++?</p>
+                <label><input type="radio" name="q6" value="Function overloading"> Function overloading</label>
+                <label><input type="radio" name="q6" value="Operator overloading"> Operator overloading</label>
+                <label><input type="radio" name="q6" value="Virtual functions"> Virtual functions</label>
+            </div>
+            <div class="question">
+                <p>7. Which of the following correctly declares an array in C++?</p>
+                <label><input type="radio" name="q7" value="int arr[10];"> int arr[10];</label>
+                <label><input type="radio" name="q7" value="array int arr[10];"> array int arr[10];</label>
+                <label><input type="radio" name="q7" value="int arr(10);"> int arr(10);</label>
+            </div>
+            <div class="question">
+                <p>8. What is a destructor in C++?</p>
+                <label><input type="radio" name="q8" value="A function called when an object is destroyed"> A function called when an object is destroyed</label>
+                <label><input type="radio" name="q8" value="A function to destroy variables"> A function to destroy variables</label>
+                <label><input type="radio" name="q8" value="A function that destroys the class definition"> A function that destroys the class definition</label>
+            </div>
+            <div class="question">
+                <p>9. What is the output of the following C++ code snippet?</p>
+                <pre>
+                int x = 5;
+                x++;
+                cout << x;
+                </pre>
+                <label><input type="radio" name="q9" value="4"> 4</label>
+                <label><input type="radio" name="q9" value="5"> 5</label>
+                <label><input type="radio" name="q9" value="6"> 6</label>
+            </div>
+            <div class="question">
+                <p>10. Which of the following is used to define a class in C++?</p>
+                <label><input type="radio" name="q10" value="class ClassName"> class ClassName</label>
+                <label><input type="radio" name="q10" value="struct ClassName"> struct ClassName</label>
+                <label><input type="radio" name="q10" value="define ClassName"> define ClassName</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results-section">
+        <h2>Results</h2>
+        <p>Your score will be displayed here after submitting the quiz.</p>
+        <div id="quiz-results"></div>
+    </section>
+
+
+     <!-- Result Modal -->
+     <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h3>Your Score</h3>
+            <p id="modal-score"></p>
+            <button onclick="showSubmissionModal()">Done</button>
+        </div>
+    </div>
+
+    <!-- Submission Modal -->
+    <div id="submissionModal" class="modal">
+        <div class="modal-content">
+            <p>You have submitted the quiz successfully. Your certificate will be mailed to you.<br>Redirecting to home page...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Java Quiz &copy; 2024</p>
+    </footer>
+
+    <script>
+        function submitQuiz() {
+            const form = document.getElementById('quiz-form');
+            const formData = new FormData(form);
+            const score = calculateScore(formData);
+            document.getElementById('modal-score').textContent = `Your score is: ${score} out of 10`;
+            document.getElementById('resultModal').style.display = 'flex';
+        }
+
+        function calculateScore(formData) {
+            let score = 0;
+            if (formData.get('q1') === 'object') score++;
+            if (formData.get('q2') === 'Both are correct') score++;
+            if (formData.get('q3') === 'Netscape') score++;
+            if (formData.get('q4') === '// This is a comment') score++;
+            if (formData.get('q5') === 'let arr = [1, 2, 3];') score++;
+            if (formData.get('q6') === 'Both are correct') score++;
+            if (formData.get('q7') === 'number') score++;
+            if (formData.get('q8') === 'pop()') score++;
+            if (formData.get('q9') === 'The object from where it was called') score++;
+            if (formData.get('q10') === 'React') score++;
+            return score;
+        }
+
+        function showSubmissionModal() {
+            document.getElementById('resultModal').style.display = 'none';
+            const submissionModal = document.getElementById('submissionModal');
+            submissionModal.style.display = 'flex';
+
+            // Delay the navigation to the home page
+            setTimeout(function() {
+                submissionModal.style.display = 'none';  // Hide the modal
+                window.location.href = "home.html";  // Replace "home.html" with your actual home page URL
+            }, 3000); // Wait for 3 seconds before redirecting
+        }
+    </script>
+
+</body>
+</html>

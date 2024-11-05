@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #012e40, #145374);
+    color: #fff;
+}
+
+/* Sticky Header */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #022135;
+    padding: 20px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sticky-header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    color: #33bbe8;
+}
+
+.sticky-header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sticky-header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.sticky-header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.sticky-header nav ul li a:hover {
+    color: #33bbe8;
+}
+
+/* Quiz Section */
+.quiz-section {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.quiz-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+/* Quiz Cards Container */
+.quiz-card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+/* Individual Quiz Card */
+.quiz-card {
+    background-color: #022135;
+    border-radius: 15px;
+    width: 280px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-card h3 {
+    font-size: 1.8em;
+    color: #33bbe8;
+    margin-bottom: 15px;
+}
+
+.quiz-card p {
+    font-size: 1.1em;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+.quiz-card button {
+    background-color: #33bbe8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.quiz-card button:hover {
+    background-color: #ffffff;
+    color: #33bbe8;
+}
+
+/* Hover effects for cards */
+.quiz-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #022135;
+    color: #33bbe8;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
